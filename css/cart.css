@@ -1,0 +1,57 @@
+#container-productos{
+    width: 500px;
+    margin: auto;
+
+}
+
+.card2{
+    display: flex;
+    align-items: center;
+}
+
+.card2 h2{
+    padding: 10px;
+    font-size: 1rem;
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-oscuro-gris);
+    text-align: center;
+    margin-bottom: -7px; 
+}
+
+.card2 p{
+    padding: 10px;
+    color: var(--color-oscuro-gris);
+    text-align: center;
+}
+
+.card2 div{
+    padding: 10px;
+    color: var(--color-oscuro-gris);
+    display: flex;
+    gap: 3px;
+    
+}
+
+.card2 img{
+    height: 100px;
+}
+
+
+button{
+    background-color: var(--color-violeta);
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 5px;
+    margin: 5px;
+    
+}
+
+#comprar{
+    width: 60%; 
+    height: 30%;   
+}
+
+#cancelar{
+    width: 60%; 
+    height: 30%;  
+}

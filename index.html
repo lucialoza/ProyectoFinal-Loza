@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Shop</title>
+    
+    <!-- Link CSS-->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Link JS-->
+    <script src="js/main.js" defer></script>
+    <script src="js/cartService.js" defer></script>
+</head>
+<body>
+    <div class="pestaña">
+        <p> Envíos <b>GRATIS</b> en pedidos de $60.000 o más 
+        </p>
+    </div>
+    <header>
+        <a href="index.html"><img src="img/LogoWineShop.png" alt="Logo-tiendaVinos" class="imagenLogo"></a>
+
+        <nav>
+            <ul>
+                <li class="list">VINO TINTO</li>
+                <li class="list">VINO BLANCO</li>  
+                <li class="list">VINO ESPUMOSO</li>
+                <li class="list">VINO ROSADO</li>
+            </ul>
+        </nav>
+
+        <a href="cart.html" id="carrito"><img src="img/icono-carrito.png" alt="icono-carrito" class="imagenCarrito"><span id="cuenta-carrito">0</span></a>
+
+    </header>
+    <main>
+        <div id="container">
+            <section class="Seccion-top">
+                <h1>Los mejores vinos al mejor precio los encontrás en Wine Shop</h1>
+           
+            </section>
+            <section id="container-productos" class="container-productor">   
+            </section>
+            
+        </div>
+    </main>
+
+    <!-- Conecto con Biblioteca Sweet Alert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+
+</html>

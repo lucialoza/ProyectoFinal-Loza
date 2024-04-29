@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-claro: #ffffff;
+    --color-claro-gris: #f5f5f5;
+    --color-oscuro-gris: #666565;
+    --color-violeta: violet;
+
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--color-claro-gris);
+    height: 100%;
+}
+
+.pestaña {
+    background-color: var(--color-oscuro-gris);
+    padding: 12px;
+    font-family: sans-serif;
+    text-align: center;
+    justify-content: space-between;
+    position: sticky;
+    color: var(--color-claro);
+}
+
+header{
+    background-color: var(--color-claro);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    border-bottom: 2px solid #f8f8f8;
+    position: sticky;
+    top: 0;
+}
+
+.imagenLogo{
+    width: 100px;
+    height: 100px;
+}
+
+.imagenCarrito{
+    width: 40px;
+    height: 40px;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    background-color: white;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+}
+
+nav ul li{
+    margin: 0 40px;
+    cursor: pointer;
+}
+
+.list{
+    text-decoration: none;
+    color:  var(--color-oscuro-gris);
+}
+
+a:hover{
+    text-decoration: underline;
+
+}
+
+#cuenta-carrito{
+    background-color: var(--color-violeta);
+    border-radius: 100%;
+    display: inline-block;
+    width: 20px;
+    line-height: 20px;
+    text-align: center;
+    position: absolute;
+}
+
+#container{
+    padding: 30px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.Seccion-top h1{
+    font-family: sans-serif;
+    font-size: 1.7rem;
+    color: var(--color-oscuro-gris);
+}
+
+.Seccion-top img{
+    align-items: center;
+    padding: 30px;
+}
+
+#container-productos{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+    max-width: 800px;
+    margin: auto;
+
+}
+
+.card{
+    background-color: white;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    height: 480px;
+    border: 1px solid #f5f5f5;
+    margin-top: 20px;
+    
+}
+
+.card h2{
+    font-size: 1rem;
+    padding: 10px;
+    background-color: var(--color-primario-oscuro);
+    color: var(--color-oscuro-gris);
+    text-align: center;
+    margin-bottom: -7px; 
+}
+
+.card p{
+    padding: 5px;
+    color: black;
+    text-align: center;
+}
+
+.card img{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 76%;
+    
+}
+
+.texto-boton{
+    height: 24%;
+}
+
+.card button{
+    background-color: var(--color-violeta);
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 5px;
+    width: 50%; 
+    height: 25%;   
+}
+
+
