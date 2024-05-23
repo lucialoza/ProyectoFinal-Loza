@@ -1,5 +1,6 @@
 const contenedor = document.getElementById("container-productos")
 
+
 function mostrarProductosEnCarrito(){
     contenedor.innerHTML = "" //para que cuando se muestran los vinos (para cuando se actualice el carrito), se borre todo lo que veiamos antes
     const productos = JSON.parse(localStorage.getItem("carrito"))
@@ -13,29 +14,15 @@ function mostrarProductosEnCarrito(){
                 <h2>${producto.nombre}</h2>
                 <p>$${producto.precio}</p>
                 <div>
-                    <button>-</button>
+                    <button class="restar">-</button>
                     <span class="cantidad">${producto.cantidad}</span>
-                    <button>+</button>
+                    <button class="sumar">+</button>
                 </div>
-                `
+            `
             // Agrego el nuevo producto al contenedor    
             contenedor.appendChild(nuevoVino)
-
-            // Agrego event listeners a los botones de sumar y restar
-            nuevoVino.getElementsByTagName('button')[0].addEventListener("click", ()=> {
-                restarAlCarrito(producto)
-                mostrarProductosEnCarrito()
-            })
-
-            nuevoVino.getElementsByTagName('button')[1].addEventListener("click", () => {
-                agregarAlCarrito (producto)
-                mostrarProductosEnCarrito()  
-            })
-           
-        }) 
-        actualizarNumeroCarrito()
+        })   
     }  
-    
     
     // Muestro Precio Total del Carrito y opciones de terminar compra o cancelarla
     contenedor.innerHTML += `
@@ -45,40 +32,49 @@ function mostrarProductosEnCarrito(){
             <button id="cancelar">Cancelar Compra</button>
         </div>
     `
-    const cancelar = document.getElementById("cancelar")
-    cancelar.addEventListener("click", ()=>{
-        limpiarCarrito()
+    actualizarNumeroCarrito()
+}
+
+// Llamo a la función para mostrar los productos en el carrito
+mostrarProductosEnCarrito()
+
+// Evento para los botones
+contenedor.addEventListener("click", (event) => {
+    if (event.target.classList.contains("restar")) {
+        const productoNombre = event.target.closest(".card2").querySelector("h2").textContent;
+        const producto = obtenerProductoPorNombre(productoNombre);
+        restarAlCarrito(producto);
+        mostrarProductosEnCarrito();
+    } else if (event.target.classList.contains("sumar")) {
+        const productoNombre = event.target.closest(".card2").querySelector("h2").textContent;
+        const producto = obtenerProductoPorNombre(productoNombre);
+        agregarAlCarrito(producto);
+        mostrarProductosEnCarrito();
+    } else if (event.target.id === "cancelar") {
+        limpiarCarrito();
         Swal.fire({
             icon: "error",
             title: "Su compra fue cancelada con éxito"
         });
-        mostrarProductosEnCarrito()
-        
-    })
-
-    const comprar = document.getElementById("comprar")
-    comprar.addEventListener("click", ()=>{
-        limpiarCarrito()
+        mostrarProductosEnCarrito();
+    } else if (event.target.id === "comprar") {
+        limpiarCarrito();
         Swal.fire({
             icon: "success",
             title: "¡Compra realizada!",
             text: "Recibirá noticias en su correo con la información del envío"
         });
-        mostrarProductosEnCarrito()
-        
-    })
+        mostrarProductosEnCarrito();
+    }
+});
 
-    actualizarNumeroCarrito()
-
+function obtenerProductoPorNombre(nombre) {
+    const productos = JSON.parse(localStorage.getItem("carrito"));
+    return productos.find(producto => producto.nombre === nombre);
 }
 
 
-// Llamo a la función para mostrar los productos en el carrito
-mostrarProductosEnCarrito()
-
-
 // function calcular Precio Total del Carrito
-
 function calcularTotal() {
     const productos = JSON.parse(localStorage.getItem("carrito"))
     let total = 0;
@@ -93,6 +89,5 @@ function limpiarCarrito(){
     localStorage.removeItem('carrito')
     actualizarNumeroCarrito()
 }
-
 
 

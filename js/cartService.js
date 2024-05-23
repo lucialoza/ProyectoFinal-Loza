@@ -52,7 +52,7 @@ const cuentaCarritoElement = document.getElementById("cuenta-carrito")
 
 function actualizarNumeroCarrito(){
     try{
-        const memoria = JSON.parse(localStorage.getItem('carrito'))
+        const memoria = JSON.parse(localStorage.getItem('carrito')) || [];
         const cuenta = memoria.reduce((acumulador, valorDelArray)=> acumulador + valorDelArray.cantidad, 0)
         cuentaCarritoElement.innerText = cuenta
     }
@@ -62,7 +62,6 @@ function actualizarNumeroCarrito(){
 
 }
 
-
-
-
 actualizarNumeroCarrito()
+
+
